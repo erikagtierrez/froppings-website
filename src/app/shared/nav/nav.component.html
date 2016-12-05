@@ -27,11 +27,14 @@
                     <li routerLinkActive="active">
                         <a class="page-scroll" [routerLink]="['/contact']">Contáctanos</a>
                     </li>
-                    <li routerLinkActive="active">
-                        <a class="page-scroll" [routerLink]="['/sign-up']">Registro</a>
+                    <li routerLinkActive="active" *ngIf="!authUser">
+                        <a class="page-scroll"  [routerLink]="['/login']">Iniciar sesión</a>
                     </li>
-                    <li routerLinkActive="active">
-                        <a class="page-scroll" [routerLink]="['/login']">Iniciar sesión</a>
+                    <li routerLinkActive="active" *ngIf="!authUser">
+                        <a class="page-scroll"  [routerLink]="['/sign-up']">Registro</a>
+                    </li>
+                    <li routerLinkActive="active" *ngIf="authUser">
+                        <a class="page-scroll"  (click)="cerrarsesion()" >Cerrar sesión</a>
                     </li>
                 </ul>
             </div>

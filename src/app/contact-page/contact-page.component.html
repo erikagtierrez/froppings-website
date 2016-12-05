@@ -19,19 +19,19 @@
                         		</div>
                             </div>
                              <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form  #form="ngForm" (ngSubmit)="onSubmit(form)" class="registration-form">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-first-name">First name</label>
-			                        	<input type="text" name="form-first-name" placeholder="Nombre Completo" class="form-first-name form-control" id="form-first-name">
+			                    		<label class="sr-only" for="nombre">First name</label>
+			                        	<input type="text" ngModel name="nombre" placeholder="Nombre Completo" class="form-first-name form-control" id="nombre">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="text" name="form-email" placeholder="Correo electronico" class="form-email form-control" id="form-email">
+			                        	<label class="sr-only" for="email">Email</label>
+			                        	<input type="text" ngModel name="email" placeholder="Correo electronico" class="form-email form-control" id="email">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-			                        	<textarea name="form-about-yourself" placeholder="Mensaje" 
-			                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+			                        	<label class="sr-only" for="mensaje">About yourself</label>
+			                        	<textarea name="mensaje" ngModel placeholder="Mensaje" 
+			                        				class="form-about-yourself form-control" id="mensaje"></textarea>
 			                        </div>
 			                        <button type="submit" class="btn btn-outline-dark">Contáctanos</button>
 			                    </form>

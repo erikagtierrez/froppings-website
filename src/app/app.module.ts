@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ROUTING } from './app.routing';
+import { ApiService } from './api.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
@@ -28,7 +29,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     HttpModule,
     ROUTING
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

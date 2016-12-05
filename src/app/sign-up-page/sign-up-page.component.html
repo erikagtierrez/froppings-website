@@ -1,56 +1,73 @@
 <app-nav>Loading..</app-nav>
 <header style="background-image: url('assets/img/froppings/header.png')">
-       
-         <div class="inner-bg ">
-                <div class="container">
-                    <div class="row registrationform">
-                        <div class="col-sm-7 text">
-                            <h1><strong>Este es solo el comienzo</strong><br></h1>
-                            <div class="description">
-                            	<p><br>
-	                            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, semper vel ex gravida, auctor euismod velit. Suspendisse varius ipsum sit amet magna tristique, eget faucibus eros cursus. Morbi elit diam, imperdiet a venenatis quis, ultrices ac justo. Aliquam lobortis semper nisi tincidunt ullamcorper. 
-                            	</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3>Registrate ya</h3>
-                            		<p>Lorem ipsum dolor sit amet, consectetur</p>
-                        		</div>
-                            </div>
-                            <div class="form-bottom">
-			                    <form (ngSubmit)="registrarUsuario()" role="form" action="" method="post" class="registration-form">
-			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-first-name">Nombre </label>
-			                        	<input type="text" [(ngModel)]="model.nombre" name="form-first-name" placeholder="Nombre" class="form-first-name form-control" id="form-first-name">
-			                        </div>
-									<div class="form-group">
-			                    		<label class="sr-only" for="form-first-name">Nombre </label>
-			                        	<input type="text" [(ngModel)]="model.apellido" name="form-first-name" placeholder="Apellido" class="form-first-name form-control" id="form-first-name">
-			                        </div>
-                                    <div class="form-group">
-			                    		<label class="sr-only" for="form-first-name">Nombre </label>
-			                        	<input type="text" [(ngModel)]="model.cedula" name="form-first-name" placeholder="Cedula" class="form-first-name form-control" id="form-first-name">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="text" [(ngModel)]="model.correo" name="form-email" placeholder="Correo electronico" class="form-email form-control" id="form-email">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-last-name">Last name</label>
-			                        	<input type="text" [(ngModel)]="model.contraseña" name="form-last-name" placeholder="Contraseña" class="form-last-name form-control" id="form-last-name">
-			                        </div>
-                                    <div class="form-group">
-			                        	<label class="sr-only" for="form-last-name">Last name</label>
-			                        	<input type="text" [(ngModel)]="model.apellido" name="form-last-name" placeholder="Confirmar contraseña" class="form-last-name form-control" id="form-last-name">
-			                        </div>
-			                        <button type="submit" class="btn btn-outline-dark">Comenzar!</button>
-			                    </form>
-		                    </div>
-                        </div>
-                    </div>
-                </div>
-            </div>                
-    </header>
-<app-footer>Loading..</app-footer>
+
+	<div class="inner-bg ">
+		<div class="container">
+			<div class="row registrationform">
+				<div class="col-sm-7 text">
+					<h1><strong>Este es solo el comienzo</strong><br></h1>
+					<div class="description">
+						<p><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, semper vel ex gravida, auctor euismod
+							velit. Suspendisse varius ipsum sit amet magna tristique, eget faucibus eros cursus. Morbi elit diam, imperdiet a
+							venenatis quis, ultrices ac justo. Aliquam lobortis semper nisi tincidunt ullamcorper.
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-5 form-box">
+					<div class="form-top">
+						<div class="form-top-left">
+							<h3>Registrate ya</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur</p>
+						</div>
+					</div>
+					<div class="form-bottom">
+						<form #form="ngForm" (ngSubmit)="registrarUsuario(form)" class="registration-form">
+							<div class="form-group">
+								<label class="sr-only" for="nombre">Nombre </label>
+								<input ngModel name="nombre" placeholder="Nombre" class="form-first-name form-control" id="nombre" type="text"
+									required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="apellido">Apellido </label>
+								<input ngModel name="apellido" placeholder="Apellido" class="form-first-name form-control" id="apellido" type="text"
+									required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="cedula">Cedula </label>
+								<input ngModel name="cedula" placeholder="Cedula" class="form-first-name form-control" id="cedula" type="number"
+									required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="email">Email</label>
+								<input ngModel name="email" placeholder="Correo electronico" class="form-email form-control" id="email" type="email"
+									required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="telefono">Telefono </label>
+								<input ngModel name="telefono" placeholder="Cedula" class="form-first-name form-control" id="telefono" type="number"
+									required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="email">direccion</label>
+								<textarea rows="2" cols="50" ngModel name="direccion" placeholder="Direccion" class="form-first-name form-control" id="direccion"
+									 required></textarea>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="constrasena">Contraseña</label>
+								<input ngModel name="contrasena" placeholder="Contraseña" class="form-last-name form-control" id="constrasena"
+									type="password" required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="constrasenaVerificar">Repetir contraseña</label>
+								<input ngModel name="constrasenaVerificar" placeholder="Confirmar contraseña" class="form-last-name form-control"
+									id="constrasenaVerificar" type="password" required>
+							</div>
+							<button type="submit" [disabled]="!form.valid" class="btn btn-outline-dark">Comenzar!</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<app-footer></app-footer>

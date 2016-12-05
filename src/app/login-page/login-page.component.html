@@ -7,7 +7,7 @@
                             <h1><strong>Nos alegra que estes de vuelta</strong><br></h1>
                             <div class="description">
                             	<p><br>
-	                            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, semper vel ex gravida, auctor euismod velit. Suspendisse varius ipsum sit amet magna tristique, eget faucibus eros cursus. Morbi elit diam, imperdiet a venenatis quis, ultrices ac justo. Aliquam lobortis semper nisi tincidunt ullamcorper. 
+	                            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna nisl, semper vel ex gravida, auctor euismod velit. Suspendisse varius ipsum sit amet magna tristique, eget faucibus eros cursus. Morbi elit diam, imperdiet a venenatis quis, ultrices ac justo. 
                             	</p>
                             </div>
                         </div>
@@ -19,15 +19,15 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form   #form="ngForm" (ngSubmit)="onSubmit(form)" class="registration-form">
 			                        <div class="form-group">
-			                        	<input type="text" name="form-last-name" placeholder="Usuario" class="form-last-name form-control" id="form-last-name">
+			                        	<input type="email" ngModel name="email" placeholder="Correo" class="form-last-name form-control" id="correo">
 			                        </div>
 			                       <div class="form-group">
-			                        	<input type="text" name="form-last-name" placeholder="Contraseña" class="form-last-name form-control" id="form-last-name">
+			                        	<input type="password" ngModel name="contrasena" placeholder="Contraseña" class="form-last-name form-control" id="contrasena">
 			                        </div>
                                     <br>
-			                        <button type="submit" class="btn btn-outline-dark">entrar</button>
+			                        <button type="submit" [disabled]="!form.valid" class="btn btn-outline-dark">entrar</button>
 			                    </form>
 		                    </div>
                         </div>
