@@ -1,3 +1,5 @@
+import { MAIN_ROUTING } from './main/main.routing';
+import { MainComponent } from './main/main.component';
 import { Routes, RouterModule } from "@angular/router";
 
 import { HomepageComponent } from "./homepage/homepage.component";
@@ -12,6 +14,8 @@ const APP_ROUTES: Routes = [
 	{ path: 'login', component: LoginPageComponent },
 	{ path: 'sign-up', component: SignUpPageComponent },
 	{ path: 'contact', component: ContactPageComponent },
+	{ path: 'dashboard', component: MainComponent, children: MAIN_ROUTING },
+	
 ];
 
 export const ROUTING = RouterModule.forRoot(APP_ROUTES);

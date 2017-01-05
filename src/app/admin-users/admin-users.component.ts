@@ -5,20 +5,20 @@ import { ApiService } from "../api.service";
 const bcrypt = require('bcryptjs');
 
 @Component({
-  selector: 'app-sign-up-page',
-  templateUrl: './sign-up-page.component.html',
+  selector: 'app-admin-users',
+  templateUrl: './admin-users.component.html',
+  styleUrls: ['./admin-users.component.css']
 })
-export class SignUpPageComponent implements OnInit {
+export class AdminUsersComponent implements OnInit {
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    if (localStorage.getItem("authUser")) this.router.navigateByUrl("/home");
   }
 
-  registrarUsuario(form: NgForm) {
-    let encryptedPass= bcrypt.hashSync(form.value.contrasena,10)
-    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.email, encryptedPass).subscribe(
+  onSubmit(form: NgForm) {
+    let encryptedPass= bcrypt.hashSync("123456",10)
+    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.correo, encryptedPass).subscribe(
       data => {
         if (data.status == 'success') {
           let authUser = {
@@ -30,11 +30,11 @@ export class SignUpPageComponent implements OnInit {
             "correo": form.value.correo,
             "contrasena": encryptedPass
         	}
-        	localStorage.setItem("authUser", JSON.stringify(authUser));
+          console.log(data.status)
         	this.router.navigateByUrl("/dashboard");
       }else{
         console.log("Error on sign up");
       }});
   }
-  
+
 }

@@ -20,6 +20,12 @@ export class ApiService {
 		);
   }
 
+  getUsuarioPuntos(correo:string){
+  return this.http.get(this.apiUrl + '/usuarios/' + correo).map(
+			(response: Response) => response.json()
+		);
+  }
+
   createUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string){
     let headers = new Headers({ 'Content-Type': 'application/json' })
 		let user = {
@@ -31,11 +37,12 @@ export class ApiService {
 			"correo": correo,
       "contrasena": contrasena
 		}
-		console.log(JSON.stringify(user));
+		console.log((user));
 		return this.http.post(this.apiUrl + '/usuarios', JSON.stringify(user), { headers: headers }).map(
 			(data: Response) => data.json()
 		);
   }
+
 
   sendEmail(nombre:string,mensaje:string,correo:string){
     let headers = new Headers({ 'Content-Type': 'application/json' })    

@@ -12,6 +12,14 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { MainComponent } from './main/main.component';
+import { PointsComponent } from './points/points.component';
+import { ReportsComponent } from './reports/reports.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ButtonNavComponent } from './button-nav/button-nav.component';
+import { ModifyUserComponent } from './modify-user/modify-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     FooterComponent,
     ContactPageComponent,
     SignUpPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MainComponent,
+    PointsComponent,
+    ReportsComponent,
+    AdminUsersComponent,
+    SidebarComponent,
+    ButtonNavComponent,
+    ModifyUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
