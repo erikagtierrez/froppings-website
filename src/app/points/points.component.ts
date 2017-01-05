@@ -25,14 +25,14 @@ export class PointsComponent implements OnInit {
       data => {
         console.log(data);
             this.authUser = {
-            "puntos":data.puntos,
-            "cedula": data.cedula,
-            "nombre": data.nombre,
-            "apellido": data.apellido,
-            "direccion": data.direccion,
-            "telefono": data.telefono,
-            "correo": data.correo,
-            "contrasena": data.contrasena
+            "puntos":data[0].puntos,
+            "cedula": data[0].cedula,
+            "nombre": data[0].nombre,
+            "apellido": data[0].apellido,
+            "direccion": data[0].direccion,
+            "telefono": data[0].telefono,
+            "correo": data[0].correo,
+            "contrasena": data[0].contrasena
         };
         this.puntos=this.authUser.puntos;
     });
