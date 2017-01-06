@@ -16,7 +16,8 @@ export class ModifyUserComponent implements OnInit {
             "apellido": "",
             "direccion": "",
             "telefono": "",
-            "correo": ""
+            "correo": "",
+            "contrasena":""
         };
 
   constructor(private router: Router, private apiService: ApiService) { }
@@ -35,13 +36,14 @@ export class ModifyUserComponent implements OnInit {
             "apellido": data[0].apellido,
             "direccion": data[0].direccion,
             "telefono": data[0].telefono,
-            "correo": data[0].correo
+            "correo": data[0].correo,
+            "contrasena":data[0].contrasena
         };
     });
   }
 
   modifyUser(){
-    this.apiService.updateUser(this.authUser.cedula, this.authUser.nombre, this.authUser.apellido, this.authUser.direccion, this.authUser.telefono, this.authUser.correo).subscribe(
+    this.apiService.updateUser(this.authUser.cedula, this.authUser.nombre, this.authUser.apellido, this.authUser.direccion, this.authUser.telefono, this.authUser.correo,this.authUser.contrasena).subscribe(
       data => {
         console.log(data);
         if (data.status == 'success') {

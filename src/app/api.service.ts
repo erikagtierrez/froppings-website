@@ -43,7 +43,7 @@ export class ApiService {
 		);
   }
 
-  updateUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string){
+  updateUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string){
     let headers = new Headers({ 'Content-Type': 'text/plain' })
 		let user = {
 			"cedula": cedula,
@@ -51,7 +51,8 @@ export class ApiService {
       "apellido":apellido,
 			"direccion": direccion,
 			"telefono": telefono,
-			"correo": correo
+			"correo": correo,
+      "contrasena":contrasena
     	}
 		return this.http.put(this.apiUrl + '/usuarios', JSON.stringify(user), { headers: headers }).map(
 			(data: Response) => data.json()
