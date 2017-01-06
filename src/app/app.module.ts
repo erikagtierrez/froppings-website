@@ -20,6 +20,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ButtonNavComponent } from './button-nav/button-nav.component';
 import { ModifyUserComponent } from './modify-user/modify-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
     SidebarComponent,
     ButtonNavComponent,
     ModifyUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

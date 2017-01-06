@@ -4,14 +4,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h3 class="title">Crear Pedido</h3>
+                    <h3 class="title">Modificar Usuario</h3>
                 </div>
                 <div class="content">
-                    <form>
+                    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
                         <div class="row" style="margin: 10px; margin-bottom: 10px;">
                             <div class="col-md-6 col-md-offset-2">
                                 <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Cedula">
+                                    <input type="email" class="form-control" name="email" ngModel placeholder="Correo Electrónico">
                                 </div>
                             </div>
                             <div class="col-md-2 ">
@@ -33,19 +33,19 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label>Cedula</label>
-                                                    <input type="text" class="form-control" disabled placeholder="Cedula" value="">
+                                                    <input type="text" class="form-control" name="cedula" disabled="authUser.cedula" placeholder="Cedula" value="" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Telefono</label>
-                                                    <input type="number" class="form-control" placeholder="Telefono" value="">
+                                                    <input type="number" class="form-control" name="telefono" [(ngModel)]="authUser.telefono" placeholder="Telefono" value="" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Correo Electrónico</label>
-                                                    <input type="email" class="form-control" placeholder="Correo Electrónico">
+                                                    <input type="email" class="form-control" name="correo" disabled [(ngModel)]="authUser.correo" placeholder="Correo Electrónico" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,19 +54,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input type="text" class="form-control" placeholder="Nombre" value="">
+                                                    <input type="text" class="form-control" name="nombre" [(ngModel)]="authUser.nombre" placeholder="Nombre" value="" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Apellido</label>
-                                                    <input type="text" class="form-control" placeholder="Last Name" value="">
+                                                    <input type="text" class="form-control" name="apellido" [(ngModel)]="authUser.apellido" placeholder="Last Name" value="" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Direccion</label>
-                                                    <input type="text" class="form-control" placeholder="Direccion" value="">
+                                                    <input type="text" class="form-control" name="direccion" [(ngModel)]="authUser.direccion" placeholder="Direccion" value="" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -80,8 +80,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-info btn-fill pull-right" [routerLink]="['/productspopup']" style="width: 31%;">Crear Usuario</button>
-                                        <div class="clearfix"></div>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right" style="width: 31%;" [disabled]="!form.valid" (click)="modifyUser()">Modificar Usuario</button>
                                     </form>
                                 </div>
                             </div>

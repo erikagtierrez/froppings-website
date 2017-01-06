@@ -1,3 +1,4 @@
+import { ProfileComponent } from './../profile/profile.component';
 import { DeleteUserComponent } from './../delete-user/delete-user.component';
 import { ModifyUserComponent } from './../modify-user/modify-user.component';
 import { AdminUsersComponent } from './../admin-users/admin-users.component';
@@ -11,5 +12,6 @@ export const MAIN_ROUTING: Routes=[
 {path: 'reports', component: ReportsComponent},
 {path: 'usersAdmin', component: AdminUsersComponent},
 {path: 'modifyUser', component: ModifyUserComponent},
-{path: 'deleteUser', component: DeleteUserComponent}
+{path: 'deleteUser', component: DeleteUserComponent},
+{path: 'profile', component: ProfileComponent}
 ];
