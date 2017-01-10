@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { ApiService } from "../api.service";
 const bcrypt = require('bcryptjs');
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-sign-up-page',
@@ -18,7 +19,7 @@ export class SignUpPageComponent implements OnInit {
 
   registrarUsuario(form: NgForm) {
     let encryptedPass= bcrypt.hashSync(form.value.contrasena,10)
-    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.email, encryptedPass).subscribe(
+    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.email, encryptedPass,"Cliente").subscribe(
       data => {
         if (data.status == 'success') {
           let authUser = {
@@ -28,12 +29,14 @@ export class SignUpPageComponent implements OnInit {
             "direccion": form.value.direccion,
             "telefono": form.value.telefono,
             "correo": form.value.correo,
-            "contrasena": encryptedPass
+            "contrasena": encryptedPass,
+            "rol": "Cliente"
         	}
         	localStorage.setItem("authUser", JSON.stringify(authUser));
         	this.router.navigateByUrl("/dashboard");
       }else{
         console.log("Error on sign up");
+        swal('Oops...', 'Se ha producido un error en el registro!', 'error');
       }});
   }
   

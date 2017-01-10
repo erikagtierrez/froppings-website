@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert2'          
 
 @Component({
   selector: 'app-points',
@@ -23,6 +23,7 @@ export class PointsComponent implements OnInit {
   onSubmit(form: NgForm){
     this.apiService.getUsuarioPuntos(form.value.email).subscribe(
       data => {
+        if(data != 0){
         console.log(data);
             this.authUser = {
             "puntos":data[0].puntos,
@@ -35,6 +36,9 @@ export class PointsComponent implements OnInit {
             "contrasena": data[0].contrasena
         };
         this.puntos=this.authUser.puntos;
+      }else{
+          swal('Oops...', 'Correo incorrecto!', 'error');
+      }
     });
   }
 }

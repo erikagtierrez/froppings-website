@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 const bcrypt = require('bcryptjs');
+import swal from 'sweetalert2'
 
 import { ApiService } from '../api.service';
 
@@ -31,13 +32,17 @@ export class LoginPageComponent implements OnInit {
             "direccion": data[0].direccion,
             "telefono": data[0].telefono,
             "correo": data[0].correo,
-            "contrasena": data[0].contrasena
+            "contrasena": data[0].contrasena,
+            "imagen":data[0].imagen,
+            "rol":data[0].tipoUsuario
           }
           console.log(authUser);
           localStorage.setItem("authUser", JSON.stringify(authUser));
           this.router.navigateByUrl("/dashboard");
-        }else
-          console.log("Wrong credentials :(");
+        }else{
+          console.log("Wrong credentials :(");         
+          swal('Oops...', 'Correo/Contraseña incorrectos!', 'error');
+        }
       }
     );
    

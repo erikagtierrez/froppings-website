@@ -10,15 +10,21 @@ const bcrypt = require('bcryptjs');
   styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent implements OnInit {
-
+  rol=["Cliente", "Administrador"];
+  rolSelected: string;
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
+  callRol(selected){
+    console.log(selected);
+    this.rolSelected=selected;
+  }
+
   onSubmit(form: NgForm) {
     let encryptedPass= bcrypt.hashSync("123456",10)
-    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.correo, encryptedPass).subscribe(
+    this.apiService.createUser(form.value.cedula, form.value.nombre, form.value.apellido, form.value.direccion, form.value.telefono, form.value.correo, encryptedPass, this.rolSelected).subscribe(
       data => {
         if (data.status == 'success') {
           let authUser = {
@@ -28,7 +34,8 @@ export class AdminUsersComponent implements OnInit {
             "direccion": form.value.direccion,
             "telefono": form.value.telefono,
             "correo": form.value.correo,
-            "contrasena": encryptedPass
+            "contrasena": encryptedPass,
+            "tipoUsuario": this.rolSelected
         	}
           console.log(data.status)
         	this.router.navigateByUrl("/dashboard");

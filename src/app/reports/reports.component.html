@@ -1,3 +1,41 @@
-<p>
-  reports works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card col-md-4">
+                <div class="header">
+                    <h3 class="title">Usuarios Registrados</h3>
+                </div>
+                <div class="content">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let u of usuario; let i = index">Nombre: {{u.nombre}} {{u.apellido}} <br> Correo: {{u.correo}} <br> Cedula: {{u.cedula}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class=" card col-md-4 ">
+                <div class="header ">
+                    <h3 class="title ">Usuarios Administradores</h3>
+                </div>
+                <div class="content ">
+                    <ul class="list-group">
+                        <template ngFor let-u [ngForOf]="usuario" let-i="index" [ngForTrackBy]="trackByFn">
+                        <li class="list-group-item" *ngIf="u.tipoUsuario== 'Administrador' ">Nombre: {{u.nombre}} {{u.apellido}} <br> Correo: {{u.correo}} <br> Cedula: {{u.cedula}}</li>
+                      </template>
+                    </ul>
+                </div>
+            </div>
+            <div class="card col-md-4 ">
+                <div class="header ">
+                    <h3 class="title ">Usuarios Cliente</h3>
+                </div>
+                <div class="content ">
+                    <ul class="list-group">
+                        <template ngFor let-u [ngForOf]="usuario" let-i="index" [ngForTrackBy]="trackByFn">
+                        <li class="list-group-item" *ngIf="u.tipoUsuario== 'Cliente' ">Nombre: {{u.nombre}} {{u.apellido}} <br> Correo: {{u.correo}} <br> Cedula: {{u.cedula}}</li>
+                      </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

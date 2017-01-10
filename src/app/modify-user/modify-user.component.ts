@@ -17,11 +17,18 @@ export class ModifyUserComponent implements OnInit {
             "direccion": "",
             "telefono": "",
             "correo": "",
-            "contrasena":""
+            "contrasena":"",
+            "tipoUsuario":""
         };
+  rol=["Cliente", "Administrador"];
+  rolSelected: string;
 
   constructor(private router: Router, private apiService: ApiService) { }
 
+  callRol(selected){
+    console.log(selected);
+    this.rolSelected=selected;
+  }
   ngOnInit() {
   }
 
@@ -37,13 +44,15 @@ export class ModifyUserComponent implements OnInit {
             "direccion": data[0].direccion,
             "telefono": data[0].telefono,
             "correo": data[0].correo,
-            "contrasena":data[0].contrasena
+            "contrasena":data[0].contrasena,
+            "tipoUsuario": data[0].tipoUsuario
         };
+        this.rolSelected=this.authUser.tipoUsuario;
     });
   }
 
   modifyUser(){
-    this.apiService.updateUser(this.authUser.cedula, this.authUser.nombre, this.authUser.apellido, this.authUser.direccion, this.authUser.telefono, this.authUser.correo,this.authUser.contrasena).subscribe(
+    this.apiService.updateUser(this.authUser.cedula, this.authUser.nombre, this.authUser.apellido, this.authUser.direccion, this.authUser.telefono, this.authUser.correo,this.authUser.contrasena,this.rolSelected).subscribe(
       data => {
         console.log(data);
         if (data.status == 'success') {

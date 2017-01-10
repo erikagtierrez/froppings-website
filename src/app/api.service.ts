@@ -26,7 +26,7 @@ export class ApiService {
 		);
   }
 
-  createUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string){
+  createUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string, rol:string){
     let headers = new Headers({ 'Content-Type': 'application/json' })
 		let user = {
 			"cedula": cedula,
@@ -35,7 +35,8 @@ export class ApiService {
 			"direccion": direccion,
 			"telefono": telefono,
 			"correo": correo,
-      "contrasena": contrasena
+      "contrasena": contrasena,
+			"tipoUsuario":rol
 		}
 		console.log((user));
 		return this.http.post(this.apiUrl + '/usuarios', JSON.stringify(user), { headers: headers }).map(
@@ -43,7 +44,7 @@ export class ApiService {
 		);
   }
 
-  updateUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string){
+  updateUser(cedula:string,nombre:string,apellido:string,direccion:string,telefono:string,correo:string,contrasena:string,rol:string){
     let headers = new Headers({ 'Content-Type': 'text/plain' })
 		let user = {
 			"cedula": cedula,
@@ -52,7 +53,8 @@ export class ApiService {
 			"direccion": direccion,
 			"telefono": telefono,
 			"correo": correo,
-      "contrasena":contrasena
+      "contrasena":contrasena,
+			"tipoUsuario":rol
     	}
 		return this.http.put(this.apiUrl + '/usuarios', JSON.stringify(user), { headers: headers }).map(
 			(data: Response) => data.json()
@@ -60,7 +62,8 @@ export class ApiService {
   }  
 
     deleteUser(correo:string){
-		return this.http.delete(this.apiUrl + '/usuarios/'+correo).map(
+    let headers = new Headers({ 'Content-Type': 'text/plain' })			
+		return this.http.put(this.apiUrl + '/usuariosDelete/'+correo,{ headers: headers }).map(
 			(data: Response) => data.json()
 		);
   }  

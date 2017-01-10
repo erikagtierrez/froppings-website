@@ -73,9 +73,8 @@
                                                 <div class="form-group">
                                                     <label>Tipo de Usuario</label>
                                                     <br>
-                                                    <select style="line-height: 2">
-                                                      <option value="1">Cliente</option>
-                                                      <option value="2">Administrador</option>
+                                                    <select style="line-height: 2" #rolUsuario class="form-control" (change)="callRol(rolUsuario.value)" required>
+                                                      <option *ngFor="let r of rol" [value]="r" [selected]="r==rolSelected">{{r}}</option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -30,8 +30,11 @@
             "assets/css/vitality-tan.css"
         ],
         "scripts": [
+            "../node_modules/jquery/dist/jquery.min.js",
+            "../node_modules/materialize-css/dist/js/materialize.min.js",
             "assets/js/plugins/retina/retina.min.js",
             "assets/js/jquery.js",
+            "assets/js/plugins/jquery.mixitup.js",
             "assets/js/bootstrap/bootstrap.min.js",
             "assets/js/plugins/jquery.easing.min.js",
             "assets/js/plugins/cbpAnimatedHeader.js",
@@ -39,10 +42,7 @@
             "assets/js/plugins/background/core.js",
             "assets/js/plugins/background/transition.js",
             "assets/js/plugins/background/background.js",
-            "assets/js/plugins/jquery.mixitup.js",
             "assets/js/plugins/wow/wow.min.js",
-            "assets/js/contact_me.js",
-            "assets/js/plugins/jqBootstrapValidation.js",
             "assets/js/vitality.js"
         ],
         "environments": {

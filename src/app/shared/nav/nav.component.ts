@@ -8,9 +8,12 @@ import { Router } from "@angular/router";
 })
 
 export class NavComponent implements OnInit {
-  authUser = localStorage.getItem("authUser");
+  public authUser;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+   this.authUser = localStorage.getItem("authUser");
+    
+   }
 
   ngOnInit() {
     if (this.authUser) this.authUser = JSON.parse(this.authUser);
@@ -18,7 +21,7 @@ export class NavComponent implements OnInit {
 
   cerrarsesion(){
     localStorage.removeItem("authUser");
-    this.router.navigateByUrl("/home");
+    this.router.navigateByUrl("/login");
   }
 
 }
