@@ -14,10 +14,13 @@ import swal from 'sweetalert2'
 export class PointsComponent implements OnInit {
     public puntos: number;
     public authUser;
+    public user;
+
   constructor(private router: Router, private apiService: ApiService) {
    }
 
   ngOnInit() {
+    this.authUser  = JSON.parse(localStorage.getItem("authUser"));
   }
 
   onSubmit(form: NgForm){
@@ -25,7 +28,7 @@ export class PointsComponent implements OnInit {
       data => {
         if(data != 0){
         console.log(data);
-            this.authUser = {
+            this.user = {
             "puntos":data[0].puntos,
             "cedula": data[0].cedula,
             "nombre": data[0].nombre,
@@ -33,7 +36,8 @@ export class PointsComponent implements OnInit {
             "direccion": data[0].direccion,
             "telefono": data[0].telefono,
             "correo": data[0].correo,
-            "contrasena": data[0].contrasena
+            "contrasena": data[0].contrasena,
+            "rol":data[0].tipoUsuario
         };
         this.puntos=this.authUser.puntos;
       }else{

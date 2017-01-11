@@ -11,13 +11,13 @@
                     <p>Puntos</p>
                 </a>
             </li>
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngIf="authUser.rol=='Administrador' ">
                 <a [routerLink]="['/dashboard/usersAdmin']">
                     <i class="pe-7s-ticket"></i>
                     <p>Usuarios</p>
                 </a>
             </li>
-            <li routerLinkActive="active">
+            <li routerLinkActive="active" *ngIf="authUser.rol=='Administrador' ">
                 <a [routerLink]="['/dashboard/reports']">
                     <i class="pe-7s-box1"></i>
                     <p>Reportes</p>

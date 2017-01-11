@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { ApiService } from "../api.service";
+import swal from 'sweetalert2'          
 
 @Component({
   selector: 'app-modify-user',
@@ -35,6 +36,7 @@ export class ModifyUserComponent implements OnInit {
   onSubmit(form: NgForm){
     this.apiService.getUsuarioPuntos(form.value.email).subscribe(
       data => {
+      if(data != 0){
         console.log(data);
             this.authUser = {
             "puntos":data[0].puntos,
@@ -48,6 +50,9 @@ export class ModifyUserComponent implements OnInit {
             "tipoUsuario": data[0].tipoUsuario
         };
         this.rolSelected=this.authUser.tipoUsuario;
+      }else{
+        swal('Oops...', 'Correo incorrecto!', 'error');
+      }
     });
   }
 

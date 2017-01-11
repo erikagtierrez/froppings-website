@@ -34,6 +34,7 @@ export class LoginPageComponent implements OnInit {
             "correo": data[0].correo,
             "contrasena": data[0].contrasena,
             "imagen":data[0].imagen,
+            "puntos":data[0].puntos,
             "rol":data[0].tipoUsuario
           }
           console.log(authUser);

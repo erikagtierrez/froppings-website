@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { NgUploaderOptions } from 'ngx-uploader';
 const bcrypt = require('bcryptjs');
+import swal from 'sweetalert2';        
 
 @Component({
   selector: 'app-profile',
@@ -54,7 +55,9 @@ export class ProfileComponent implements OnInit {
             "telefono": data[0].telefono,
             "correo": data[0].correo,
             "contrasena": data[0].contrasena,
-            "imagen":data[0].imagen
+            "imagen":data[0].imagen,
+            "puntos":data[0].puntos,
+            "rol":data[0].tipoUsuario
           }
           localStorage.removeItem("authUser");
           localStorage.setItem("authUser", JSON.stringify(newAuthUser));
@@ -74,8 +77,11 @@ export class ProfileComponent implements OnInit {
             this.router.navigateByUrl("/dashboard");
           } else {
             console.log("Error on sign up");
+            swal('Oops...', 'Se ha presentado un error!', 'error');            
           }
         });
+    }else{
+      swal('Oops...', 'Contraseña anterior incorrecta!', 'error');
     }
   }
 

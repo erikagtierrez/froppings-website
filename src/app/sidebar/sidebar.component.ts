@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  authUser = JSON.parse(localStorage.getItem("authUser"));
 
   constructor(private router: Router) { }
 

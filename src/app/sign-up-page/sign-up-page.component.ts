@@ -30,7 +30,8 @@ export class SignUpPageComponent implements OnInit {
             "telefono": form.value.telefono,
             "correo": form.value.correo,
             "contrasena": encryptedPass,
-            "rol": "Cliente"
+            "rol": "Cliente",
+            "puntos":100
         	}
         	localStorage.setItem("authUser", JSON.stringify(authUser));
         	this.router.navigateByUrl("/dashboard");
